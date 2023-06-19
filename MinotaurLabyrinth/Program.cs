@@ -14,10 +14,12 @@
                 _ => Size.Medium // Make a medium game if input is "medium" or anything else
             };
 
-            // A random seed (Guid.NewGuid().GetHashCode()) is used for each game.
-            // Consider adding a way the user can choose a game seed (this is useful for testing as well).
-            // If the user doesn't enter a seed, you can use the random seed
+            RoomFactory.Instance.Register(RoomType.ChamberOfShadows, () => new ChamberOfShadows());
+
             LabyrinthGame game = new(mapSize, Guid.NewGuid().GetHashCode());
+
+            ProceduralGenerator.Initialize(game.Map);
+            
             game.Run();
         }
     }

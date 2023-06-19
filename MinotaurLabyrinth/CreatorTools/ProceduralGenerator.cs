@@ -32,6 +32,7 @@
                 foreach (int col in colPositions)
                     _locations.Add(new Location(row, col));
             }
+           
         }
 
         /// <summary>
